@@ -1,7 +1,7 @@
 #include <iostream>
 #include <istream>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 //function declarations
@@ -36,11 +36,11 @@ int rand_num(){
 
     if (isSecond) {
         n = rand() % 6 + 1;
-        srand(time(NULL));
+        srand(time(0));
         isSecond = !isSecond;
         first = n;
     } else {
-        srand(time(NULL));
+        srand(time(0));
         n = rand() % 6 + 1;
         while(n == first){
             n = rand() % 6 + 1;
