@@ -1,14 +1,12 @@
 #include <iostream>
 #include <istream>
 #include <cstdlib>
-#include <ctime>
 using namespace std;
 
 int pl1_score = 0;
 int com_score = 0;
 
 int rand_num(){
-    //srand(time(0));
     int n = rand() % 6 + 1;
     return n;
 }
@@ -37,16 +35,26 @@ int game_play(){
             pl1_score++;
             cout << "\nPlayer wins this round!";
             print_score();
+            cout << "\nPress ENTER to continue";
+            cin.ignore();
         } else if (who_won(pl1_num, com_num) == "L") {
             com_score++;
             cout << "\nComputer wins this round!";
             print_score();
+            cout << "\nPress ENTER to continue";
+            cin.ignore();
         } else {
             cout << "\nIt's a draw!";
             print_score();
+            cout << "\nPress ENTER to continue";
+            cin.ignore();
         }
     }
-
+    if(who_won(pl1_score, com_score) == "W"){
+        cout << "YOU WON!";
+    }else{
+        cout << "YOU LOST!";
+    }
     return 0;
 }
 
